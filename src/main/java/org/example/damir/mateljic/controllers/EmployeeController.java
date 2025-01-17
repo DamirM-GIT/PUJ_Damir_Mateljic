@@ -77,7 +77,7 @@ public final class EmployeeController {
             try {
                 double salary1 = Double.parseDouble(e1.getSalary());
                 double salary2 = Double.parseDouble(e2.getSalary());
-                return Double.compare(salary1, salary2);
+                return Double.compare(salary2, salary1);
             } catch (NumberFormatException ex) {
                 logger.warning("Invalid salary format for employee: " + ex.getMessage());
                 return 0;
@@ -97,7 +97,7 @@ public final class EmployeeController {
         }
     }
     public boolean updateEmployee(Employee employee) {
-        Document query = new Document("id", employee.getId());
+        Document query = new Document("name", employee.getId());
         Document updatedEmployee = new Document("name", employee.getName())
                 .append("surname", employee.getSurname())
                 .append("job", employee.getJob())
